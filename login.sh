@@ -1,1 +1,1 @@
-~/.virtualenvs/scrapper/bin/python ~/projects/volsbb/scripts/login.py 
+~/miniconda3/envs/tensorflow/bin/python ~/projects/volsbb/scripts/login.py 

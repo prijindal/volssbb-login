@@ -1,4 +1,4 @@
-import urllib2
+from urllib import request, parse
 from bs4 import BeautifulSoup
 import re
 
@@ -6,9 +6,11 @@ HOST = "http://phc.prontonetworks.com/cgi-bin/authlogin?URI=http://google.co.in/
 
 def tryLogin(regno, password):
 	data = 'userid=%s&password=%s&serviceName=ProntoAuthentication&Submit22=Login' % (regno, password)
-	req = urllib2.Request(HOST, data)
+
+	data = data.encode('utf-8')
+	req = request.Request(HOST, data)
 	print("Sending Request...")
-	response = urllib2.urlopen(req)
+	response = request.urlopen(req)
 	soup = BeautifulSoup(response, "html.parser")
 	body = soup.find("body")
 	if not body:
