@@ -10,7 +10,7 @@ def tryLogin(regno, password):
 
 	data = data.encode('utf-8')
 	req = request.Request(HOST, data)
-	print("Sending Request...")
+	# print("Sending Request...")
 	response = request.urlopen(req)
 	soup = BeautifulSoup(response, "html.parser")
 	body = soup.find("body")
@@ -24,5 +24,6 @@ def tryLogin(regno, password):
 	else:
 		print(response)
 
-password = open('/home/prijindal/projects/volsbb/Password.txt', 'r').read().strip()
-tryLogin("14BCE0607", password)
+if __name__ == '__main__':
+    password = open('/home/prijindal/projects/volsbb/Password.txt', 'r').read().strip()
+    tryLogin("14BCE0607", password)
